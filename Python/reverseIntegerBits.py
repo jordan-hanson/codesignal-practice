@@ -19,5 +19,4 @@ def csReverseIntegerBits(n):
     result = int(bin(n)[:1:-1], 2)
     print(result)
     return result
-
 csReverseIntegerBits(417)
