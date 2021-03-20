@@ -23,6 +23,8 @@
 def validParenthesesSequence(s):
     count = 0
     for i, e in enumerate(s):
+        if count == -1:
+            return False
         if e == "(":
             count += 1
         if e == ")":
