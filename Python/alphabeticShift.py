@@ -30,3 +30,6 @@ def alphabeticShift(inputString):
                 if char == element:
                     sub_string += string.ascii_lowercase[i2+1]
     return sub_string
+
+a = "crazy"
+alphabeticShift(a)
