@@ -18,3 +18,15 @@
 # [output] string
 
 # The resulting string after replacing each of its characters.
+import string
+
+def alphabeticShift(inputString):
+    sub_string = ""
+    for i, char in enumerate(inputString):
+        if char == "z":
+            sub_string += "a"
+        for i2, element in enumerate(string.ascii_lowercase):
+            if char != "z":
+                if char == element:
+                    sub_string += string.ascii_lowercase[i2+1]
+    return sub_string
