@@ -26,4 +26,5 @@ def buyAndSellStock(prices):
                     difference = result
     return difference
 a = [6, 5, 3, 2, 1]
+
 buyAndSellStock(a)
