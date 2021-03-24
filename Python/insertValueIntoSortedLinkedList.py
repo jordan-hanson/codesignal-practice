@@ -35,11 +35,11 @@
 
 # Return l after inserting value into it, with the original sorting preserved.
 # Singly-linked lists are already defined with this interface:
-# class ListNode(object):
-#   def __init__(self, x):
-#     self.value = x
-#     self.next = None
-#
+class ListNode(object):
+  def __init__(self, x):
+    self.value = x
+    self.next = None
+
 def insertValueIntoSortedLinkedList(l, value):
     p = l  
     while p is not None:
