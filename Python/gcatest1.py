@@ -24,9 +24,9 @@ def reduceTheNumber(number, k):
     # return newString
     print("line25", i)
     if len(newString) >= k:
-        reduceTheNumber(newString, k)
+        resolution = reduceTheNumber(newString, k)
         # print(newString)
-        # return newString
+        return resolution
     else:
         print(newString)
         return newString
