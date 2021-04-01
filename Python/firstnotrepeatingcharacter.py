@@ -21,5 +21,19 @@
 # [output] char
 
 # The first non-repeating character in s of '_' if there are no characters that do not repeat.
+from collections import Counter
 def first_not_repeating_character(s):
 # use a set for unique characters
+# or use a count of each character. if only 1 return character
+# else return "_"
+    count = Counter(s)
+    returnchar = ""
+    boolean = False
+    for num in count:
+        if count[num] == 1:
+            returnchar += num
+            boolean = True
+            break
+    if boolean == False:
+        returnchar = "_"
+    return returnchar
