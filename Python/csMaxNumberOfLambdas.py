@@ -28,34 +28,30 @@ import math
 from re import search
 def csMaxNumberOfLambdas(text):
     input_text = text
-    my_set = set()
-    my_match_st = "lambda"
-    new_String = ""
+    global count
     count = 0
-    # boolean == False
-    # while boolean == False:
-        # Turn True when all values have been added
-    for char in my_match_st:
-        print(input_text)
-        if search(char, input_text):
-            new_String += char
-            print(new_String)
-            res_str = input_text.replace(char, '')
-            input_text = res_str
-            print(input_text)
-        # if len(my_set) == 6:
-        #     count += 1
-        #     my_set = set()
-    # for char in my_match_st:
-    #     print(char)
-    #     # while new_String != my_match_st:
-    #     for letter in text:
-    #         if char == letter:
-    #             new_String += char
-    #             my_set.add(char)
-    # value = math.floor(len(new_String) / 6)
-    # print(value)
-    print(input_text)
-    print(new_String)
-    # print(my_set)
-    # return value
+    def findCount(input_text):
+        global my_match_st
+        my_match_st = "lambda"
+        global new_String
+        new_String = ""
+        global count
+        for char in my_match_st:
+            print("line13", input_text)
+            if search(char, input_text):
+                new_String += char
+                if new_String == my_match_st:
+                    print(new_String)
+                    new_String = ""
+                    count += 1
+                    print(count)
+                    res_str = input_text.replace(char, '', 1)
+                    input_text = res_str
+                    result = findCount(input_text)
+                    return count
+                    print("line 24", count)
+                print("line27", new_String)
+                res_str = input_text.replace(char, '', 1)
+                input_text = res_str
+    my_res = findCount(input_text)
+    return count
