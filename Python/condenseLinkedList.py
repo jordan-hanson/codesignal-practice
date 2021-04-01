@@ -22,4 +22,14 @@
 #     self.next = None
 #
 def condense_linked_list(node):
-
+    non_repeating = []
+    head = None
+    def helper(node):
+        if node == None:
+            return
+        non_repeating.append(node.value)
+        result = helper(node.next)
+    result = helper(node)
+    repeatingnum = list(dict.fromkeys(non_repeating))
+    print(repeatingnum)
+    return repeatingnum
