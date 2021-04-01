@@ -48,4 +48,26 @@
 
 # The identifier of the spy.
 def uncover_spy(n, trust):
-
+    people = set()
+    trusters = set()
+    spy = []
+    for truster, trustee in trust:
+        people.add(truster)
+        people.add(trustee)
+        trusters.add(truster)
+    print(people)
+    print(trusters)
+    difference = list(people - trusters)
+    print(difference)
+    peopleWhoDontTrust = difference
+    for person in peopleWhoDontTrust:
+        trust_counter = 0
+        for truster, trustee in trust:
+            if trustee == person:
+                trust_counter += 1
+            if trust_counter == len(people) -1:
+                spy.append(person)
+    if len(spy) != 1:
+        return -1
+    return spy[0]
+                
