@@ -24,42 +24,49 @@
 # Output:
 # [["a"]]
 def csGroupAnagrams(strs):
-
+    if len(strs) == 0:
+        return None
     result = []
     queue = []
     strsComp = ""
-    if len(strs) >= 1:
-        print(strs)
-        for i, value in enumerate(strs):
-            strsComp += value
-            sub_st_sort = sorted(value)
-            print("strs", strs)
-            if len(strs) == 1:
-                print("hit it")
-                oneL = queue.append(i)
-                result.append(queue)
-                queue = []
-                strsComp = ""
-                break
-            for j, v in enumerate(strs):
-                print("line 20", v)
-                sub_string = sorted(v)
-                print(sub_string)
-                print(strs)
-                print(len(strs))
-                if len(strs) == 1:
-                    queue.append(value)
-                if len(queue) == 0:
-                    queue.append(strsComp)
-                if sub_st_sort == sub_string:
-                    queue.append(v)
-                    print(strs[j])
-                    strs.pop(j)
-            if len(strs) == 0:
-                strs.pop(i)
-                strsComp = ""
+    while len(strs) > 0:
+        value = strs.pop(0)
+        strsComp += value
+        sub_st_sort = sorted(value)
+        if len(strs) == 0:
+            queue.append(value)
             result.append(queue)
             queue = []
-            strs.pop(i)
             strsComp = ""
-            print("35", result)
+            break
+        
+        j = 0
+        while j < len(strs):
+            sub_string = sorted(strs[j])
+            if len(queue) == 0:
+                queue.append(strsComp)
+            if sub_st_sort == sub_string:
+                if value not in queue:
+                    queue.append(value)
+                queue.append(strs[j])
+                strs.pop(j)
+                j -= 1
+            j += 1
+            
+           
+        result.append(queue)
+        queue = []
+
+        strsComp = ""
+    if len(result) >1:
+        result = sorted(result, key = len, reverse = True)
+    return result
+
+
+strs = ["apt", 
+ "pat", 
+ "ear", 
+ "tap", 
+ "are", 
+ "arm"]       
+csGroupAnagrams(strs)
